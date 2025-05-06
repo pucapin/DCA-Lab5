@@ -1,20 +1,19 @@
 .cart-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: row;
 }
 
 .cart {
-    margin-left: 60px;
-    width: 50%;
+    margin: 30px;
+    min-width: 50%;
     padding-bottom: 20px;
     min-height: 1000px;
-    background: #162f73;
-    background: linear-gradient(90deg,rgb(47, 71, 139) 0%, rgba(91, 96, 245, 1) 51%, rgb(160, 184, 250) 100%);
+    background-color: rgb(203, 234, 245);
     border-radius: 30px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     flex-wrap: wrap;

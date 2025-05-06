@@ -1,6 +1,5 @@
-import { CartActions } from "../flux/Actions";
-import { State, store } from "../flux/Store";
-import { ProductType } from "../types/Types";
+import { CartActions } from "../../flux/Actions";
+import { ProductType } from "../../types/Types";
 class ProductCard extends HTMLElement {    
 
     connectedCallback() {

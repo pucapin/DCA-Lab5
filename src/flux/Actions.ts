@@ -7,10 +7,14 @@ export const CartActionTypes = {
     REMOVE_FROM_CART: 'REMOVE_FROM_CART',
 } as const;
 
+
 export const loadStorageActionType = {
-    LOAD_STORAGE: 'LOAD_STORAGE'
-}as const; // Que al cargar la información sea por medio
+    LOAD_STORAGE: 'LOAD_STORAGE',
+    CLEAR_STORAGE: 'CLEAR_STORAGE'
+}as const; 
+// Que al cargar la información sea por medio
 // De acciones, para estandarizarlo
+
 
 export const CartActions = {
     add: (value: ProductType) => {
@@ -32,6 +36,11 @@ export const LoadActions = {
         AppDispatcher.dispatch({
             type: loadStorageActionType.LOAD_STORAGE,
             payload: state
+        })
+    },
+    remove: () => {
+        AppDispatcher.dispatch({
+            type: loadStorageActionType.CLEAR_STORAGE
         })
     }
 }; // Se toma el estado para guardarlo

@@ -12,7 +12,40 @@ class NavBar extends HTMLElement {
     render() {
         if (!this.shadowRoot) return;
         this.shadowRoot.innerHTML = `
-                <link rel="stylesheet" href="styles/navbar.css">
+                <style>
+                    .nav-l {
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: 100px;
+                    gap: 40px;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 80%;
+                    
+                }
+                .nav-r {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-end;
+                    
+                }
+                .navbar {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                    margin-bottom: 0px;
+                    width: 100%;
+                    
+                }
+
+                #cart {
+                    height: 24px;
+                    width: auto;
+                }
+                </style>
                 <nav class="navbar">
                 <div class="nav-l"><h3>FakeStore :3</h3><p id="home">Home</p></div>
                 <div class="nav-r">

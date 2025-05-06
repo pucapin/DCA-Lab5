@@ -19,7 +19,10 @@ class Root extends HTMLElement {
             this.render();
         });
         this.addEventListener('check-out', () => {
-            this.renderCart();
+            this.renderCheckout();
+        });
+        this.addEventListener('payment-done', () => {
+            this.paymentDone();
         });
     }
     render() {
@@ -27,6 +30,7 @@ class Root extends HTMLElement {
             this.shadowRoot.innerHTML = `
                 <div>
                 <nav-bar></nav-bar>
+                <hero-element></hero-element>
                 <product-render></product-render>
                 </div>
             `
@@ -47,7 +51,17 @@ class Root extends HTMLElement {
             this.shadowRoot.innerHTML = `
                 <div>
                 <nav-bar></nav-bar>
-                <cart-render></cart-render>
+                <check-out></check-out>
+                </div>
+            `
+        }
+    }
+    paymentDone() {
+        if(this.shadowRoot) {
+            this.shadowRoot.innerHTML = `
+                <div>
+                <nav-bar></nav-bar>
+                <thank-you></thank-you>
                 </div>
             `
         }

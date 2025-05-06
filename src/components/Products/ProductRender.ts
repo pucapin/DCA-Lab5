@@ -1,5 +1,5 @@
-import getData from "../services/getData";
-import { ProductType } from "../types/Types";
+import getData from "../../services/getData";
+import { ProductType } from "../../types/Types";
 
 class ProductRender extends HTMLElement {    
     connectedCallback() {

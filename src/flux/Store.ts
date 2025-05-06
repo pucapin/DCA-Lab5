@@ -63,6 +63,11 @@ class Store {
                     //Esta es una mejor aproximación a actualizar la info.
                 }
                 break;
+            case loadStorageActionType.CLEAR_STORAGE:
+                this._myState = {
+                    ...this._myState,
+                    cart: []
+                }
         }
         this.persist();
     }

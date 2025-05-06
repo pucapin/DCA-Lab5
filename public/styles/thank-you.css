@@ -1,0 +1,25 @@
+.contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thanks {
+    width: 300px;
+    height: 200px;
+    padding: 30px;
+    background-color: lightpink;
+    border-radius: 20px;
+}
+
+#go-back {
+    width: 150px;
+    height: 32px;
+    font-family: 'Inter', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(110, 110, 250);
+}

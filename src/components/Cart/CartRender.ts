@@ -1,4 +1,4 @@
-import { State, store } from "../flux/Store";
+import { State, store } from "../../flux/Store";
 
 class CartRender extends HTMLElement {    
     connectedCallback() {
@@ -46,10 +46,15 @@ class CartRender extends HTMLElement {
 
         const checkOut = this.shadowRoot.querySelector('#check-out')
         checkOut?.addEventListener('click', () => {
-            this.dispatchEvent(new CustomEvent('check-out', {
-                bubbles: true, 
-                composed: true 
-            }));
+            if(!state.cart || state.cart.length === 0) {
+                alert("There's no items in your cart! :(")
+                return;
+            } else {
+                this.dispatchEvent(new CustomEvent('check-out', {
+                    bubbles: true, 
+                    composed: true 
+                }));
+            }
         })
     }
 }

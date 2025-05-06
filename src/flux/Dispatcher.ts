@@ -5,7 +5,8 @@ import { CartActionTypes, loadStorageActionType } from "./Actions";
 export type Action =
     | { type: typeof CartActionTypes.ADD_TO_CART; payload: ProductType }
     | { type: typeof CartActionTypes.REMOVE_FROM_CART; payload: number } //payload: el id del producto a eliminar
-    | { type: typeof loadStorageActionType.LOAD_STORAGE; payload: State };
+    | { type: typeof loadStorageActionType.LOAD_STORAGE; payload: State }
+    | { type: typeof loadStorageActionType.CLEAR_STORAGE};
 
 export class Dispatcher {
     // Los metodos de cada store que accionan las handleActions

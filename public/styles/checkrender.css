@@ -1,0 +1,30 @@
+.check-out {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total {
+    background-color: lightblue;
+    width: 400px;
+    height: 200px;
+    border-radius: 20px;
+    margin-left: 100px;
+}
+
+#total-t {
+    margin-left: 40px;
+}
+
+#pay-btn {
+    margin-left: 60px;
+    width: 100px;
+    height: 32px;
+    font-family: 'Inter', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(110, 110, 250);
+}
