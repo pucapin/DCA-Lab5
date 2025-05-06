@@ -1,7 +1,11 @@
-export interface Action {
-    type: string;
-    payload?: object | number | string;
-}
+import { ProductType } from "../types/Types";
+import { State } from "./Store";
+import { CartActionTypes, loadStorageActionType } from "./Actions";
+
+export type Action =
+    | { type: typeof CartActionTypes.ADD_TO_CART; payload: ProductType }
+    | { type: typeof CartActionTypes.REMOVE_FROM_CART; payload: number } //payload: el id del producto a eliminar
+    | { type: typeof loadStorageActionType.LOAD_STORAGE; payload: State };
 
 export class Dispatcher {
     // Los metodos de cada store que accionan las handleActions

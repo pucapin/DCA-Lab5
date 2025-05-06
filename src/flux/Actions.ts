@@ -1,40 +1,28 @@
 import { AppDispatcher } from './Dispatcher';
 import { State } from './Store';
+import { ProductType } from '../types/Types';
 
-export const CounterActionTypes = {
-    INCREMENT_COUNT: 'INCREMENT_COUNT',
-    DECREMENT_COUNT: 'DECREMENT_COUNT'
-};
-
-export const UserActionTypes = {
-    SAVE_USER: 'SAVE_USER', //Variables para no quemar un string
-};
+export const CartActionTypes = {
+    ADD_TO_CART: 'ADD_TO_CART',
+    REMOVE_FROM_CART: 'REMOVE_FROM_CART',
+} as const;
 
 export const loadStorageActionType = {
     LOAD_STORAGE: 'LOAD_STORAGE'
-}; // Que al cargar la información sea por medio
+}as const; // Que al cargar la información sea por medio
 // De acciones, para estandarizarlo
 
-export const CounterActions = {
-    increment: (value: number) => {
+export const CartActions = {
+    add: (value: ProductType) => {
         AppDispatcher.dispatch({
-            type: CounterActionTypes.INCREMENT_COUNT,
+            type: CartActionTypes.ADD_TO_CART,
             payload: value,
         });
     },
-    decrement: (value: number) => {
+    remove: (value: ProductType) => {
         AppDispatcher.dispatch({
-            type: CounterActionTypes.DECREMENT_COUNT,
-            payload: value,
-        });
-    },
-};
-
-export const UserActions = {
-    saveUser: (user: { name: string; age: number }) => {
-        AppDispatcher.dispatch({
-            type: UserActionTypes.SAVE_USER,
-            payload: user,
+            type: CartActionTypes.REMOVE_FROM_CART,
+            payload: value.id,
         });
     },
 };

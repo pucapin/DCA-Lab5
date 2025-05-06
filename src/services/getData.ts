@@ -1,5 +1,5 @@
 async function getData() {
-    fetch('https://fakestoreapi.com/products')
+  return fetch('https://fakestoreapi.com/products')
   .then(function(response) {
     console.log(response)
     return response.json();

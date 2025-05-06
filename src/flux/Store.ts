@@ -1,5 +1,6 @@
 import { AppDispatcher, Action } from './Dispatcher';
-import { CounterActionTypes, UserActionTypes, loadStorageActionType } from './Actions';
+import { CartActionTypes, loadStorageActionType } from './Actions';
+import { ProductType } from '../types/Types';
 
 export type User = {
     name: string;
@@ -7,8 +8,7 @@ export type User = {
 }
 
 export type State = {
-    count: number;
-    user: User | null;
+    cart: ProductType[];
 };
 
 type Listener = (state: State) => void;
@@ -16,8 +16,7 @@ type Listener = (state: State) => void;
 
 class Store {
     private _myState: State = {
-        count: 0,
-        user: null,
+        cart: []
     }
     // Los componentes
     private _listeners: Listener[] = [];
@@ -32,42 +31,34 @@ class Store {
 
     _handleActions(action: Action): void {
         switch (action.type) {
-            case CounterActionTypes.INCREMENT_COUNT:
-                if (typeof action.payload === 'number') {
+            case CartActionTypes.ADD_TO_CART:
                     this._myState = {
                         ...this._myState,
-                        count: this._myState.count + action.payload,
+                        cart: [...this._myState.cart, action.payload],
                     }
-                }
+                
                 this._emitChange();
+                console.log(this._myState)
                 break;
 
-            case CounterActionTypes.DECREMENT_COUNT:
-                if (typeof action.payload === 'number') {
-                    this._myState = {
-                        ...this._myState,
-                        count: this._myState.count - action.payload,
-                    }
-                }
-                this._emitChange();
-                break;
-
-            case UserActionTypes.SAVE_USER:
+            case CartActionTypes.REMOVE_FROM_CART:
                 if (typeof action.payload === 'object') {
                     this._myState = {
-                        ...this._myState, // El estado anterior se copia
-                                        // Y se pone nueva información
-                        user: action.payload as User,
+                        ...this._myState,
+                        cart: this._myState.cart.filter(item => item.id !== action.payload),
                     }
                 }
                 this._emitChange();
                 break;
+
             
             case loadStorageActionType.LOAD_STORAGE:
                 if(typeof action.payload === 'object') {
                     this._myState = {
-                        ...this._myState, //Estado anterior
-                        ...action.payload //Local Storage
+                        ...this._myState, 
+                        //Estado anterior
+                        ...action.payload 
+                        //Local Storage
                     } //Se combina el estado anterior y el actual
                     //Esta es una mejor aproximación a actualizar la info.
                 }
@@ -77,9 +68,9 @@ class Store {
     }
 
     private _emitChange(): void {
-        const state = this.getState();
+        const state = this.getState(); // toma el estado actual
         for (const listener of this._listeners) {
-            listener(state);
+            listener(state); // por cada listener 'envia' el estado
         }
     }
 
