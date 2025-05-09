@@ -23,10 +23,10 @@ export const CartActions = {
             payload: value,
         });
     },
-    remove: (value: ProductType) => {
+    remove: (id:number) => {
         AppDispatcher.dispatch({
             type: CartActionTypes.REMOVE_FROM_CART,
-            payload: value.id,
+            payload: id,
         });
     },
 };

@@ -11,7 +11,7 @@ class Hero extends HTMLElement {
         this.shadowRoot.innerHTML = `
                 <link rel="stylesheet" href="styles/hero.css">
                 <div class="hero">
-                <h1 class="hero-content"> Welcome to my FakeStore!! :D</h1>             
+                <h1 class="hero-content"> Welcome to my FakeStore!! :3</h1>             
                 </div>
         `;
         }

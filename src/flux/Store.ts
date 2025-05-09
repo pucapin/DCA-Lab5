@@ -42,7 +42,7 @@ class Store {
                 break;
 
             case CartActionTypes.REMOVE_FROM_CART:
-                if (typeof action.payload === 'object') {
+                if (typeof action.payload === 'number') {
                     this._myState = {
                         ...this._myState,
                         cart: this._myState.cart.filter(item => item.id !== action.payload),
@@ -58,6 +58,7 @@ class Store {
                         ...this._myState, 
                         //Estado anterior
                         ...action.payload 
+
                         //Local Storage
                     } //Se combina el estado anterior y el actual
                     //Esta es una mejor aproximación a actualizar la info.
@@ -92,6 +93,9 @@ class Store {
 
     persist() {
         localStorage.setItem('flux:persist', JSON.stringify(this._myState));
+
+        //Cache Only!! En LocalStorage para que el usuario pueda mantener sus productos.
+
     }
 
 }

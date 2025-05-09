@@ -41,6 +41,7 @@ class CartRender extends HTMLElement {
             cartCard.setAttribute('image', product.image);
             cartCard.setAttribute('title', product.title);
             cartCard.setAttribute('price', product.price.toString());
+            cartCard.setAttribute('id', product.id.toString())
             container?.appendChild(cartCard);
         });
 
